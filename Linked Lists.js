@@ -1,3 +1,5 @@
+const prompt = require("prompt-sync")({ sigint: true });
+
 class Node {
   constructor(data, nextNode = null) {
     this.data = data;
@@ -48,7 +50,8 @@ class LinkedList {
 }
 
 const nodeOne = new Node("yousef");
-const myList = new LinkedList("abdallah", nodeOne);
+const nodeTwo = new Node("Eyad", nodeOne);
+const myList = new LinkedList("abdallah", nodeTwo);
 
 myList.addBeginning("Esraa");
 myList.addBeginning("Wafaa");
@@ -59,4 +62,9 @@ myList.removeNode("Esraa");
 console.log(myList.dataAsString);
 
 myList.removeNode("Wafaa");
+console.log(myList.dataAsString);
+
+const nameToRemove = prompt("Who so you want to delete?");
+myList.removeNode(nameToRemove);
+
 console.log(myList.dataAsString);
